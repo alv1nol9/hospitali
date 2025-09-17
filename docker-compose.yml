@@ -1,0 +1,43 @@
+
+
+services:
+  backend:
+    build: ./server
+    container_name: hospitali-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - /app/__pycache__/
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/hospitali
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: hospitali-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: hospitali-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hospitali
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

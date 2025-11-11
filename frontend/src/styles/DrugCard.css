@@ -1,0 +1,57 @@
+.drug-card {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.drug-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.drug-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.drug-card p {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.drug-card .owner {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.drug-card .low-stock {
+  color: #d22;
+  font-weight: 500;
+}
+
+.drug-card .actions {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.drug-card button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.drug-card button:hover {
+  background-color: #222;
+  transform: translateY(-1px);
+}
